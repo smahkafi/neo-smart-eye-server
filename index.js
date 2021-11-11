@@ -109,6 +109,20 @@ async function run() {
             res.send(result);
         });
 
+        // confirmation order 
+        app.put("/orders/:id", async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const order = {
+                $set: {
+                    status: "Confirmed",
+                },
+            };
+            const result = await ordersCollections.updateOne(query, order);
+            console.log(result);
+            res.json(result);
+        });
+
 
         // users check by admin 
         app.put('users/admin', async (req, res) => {
