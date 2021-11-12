@@ -110,6 +110,31 @@ async function run() {
             res.send(result);
         });
 
+
+        // products deleted by admin
+        app.delete("/glasses/:id", async (req, res) => {
+            const id = req.params.id;
+            // console.log(id);
+            const query = { _id: ObjectId(id) };
+            const result = await glassesCollections.deleteOne(query);
+            console.log(result);
+            res.send(result);
+        });
+
+        // Reviews deleted by admin
+        app.delete("/review/:id", async (req, res) => {
+            const id = req.params.id;
+            // console.log(id);
+            const query = { _id: ObjectId(id) };
+            const result = await reviewCollections.deleteOne(query);
+            console.log(result);
+            res.send(result);
+        });
+
+
+
+
+
         //add review by user
         app.post("/review", async (req, res) => {
             const cursor = req.body;
