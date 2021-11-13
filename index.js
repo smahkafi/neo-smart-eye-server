@@ -46,7 +46,7 @@ async function run() {
         app.post('/orders', async (req, res) => {
             const orders = req.body;
             const result = await ordersCollections.insertOne(orders);
-            res.send(orders);
+            res.send(result);
         })
 
         // GET orders API
