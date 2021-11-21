@@ -34,7 +34,6 @@ async function run() {
             res.json(glasses);
         })
 
-
         // Add NEW Glasses API
         app.post('/glasses', async (req, res) => {
             console.log(req.body);
@@ -148,7 +147,6 @@ async function run() {
             console.log(result);
             res.json(result);
         });
-
 
         //make role admin
         app.put("/users/admin", async (req, res) => {
